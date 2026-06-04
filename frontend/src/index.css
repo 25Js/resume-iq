@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    
+    --primary: 99 102 241;
+    --primary-foreground: 255 255 255;
+    
+    --secondary: 241 245 249;
+    --secondary-foreground: 15 23 42;
+    
+    --accent: 236 72 153;
+    --accent-foreground: 255 255 255;
+    
+    --muted: 100 116 139;
+    --muted-foreground: 241 245 249;
+    
+    --border: 226 232 240;
+    --input: 226 232 240;
+    --ring: 99 102 241;
+    --radius: 1rem;
+  }
+
+  .dark {
+    --background: 10 10 14;
+    --foreground: 244 244 245;
+    
+    --card: 20 20 28;
+    --card-foreground: 244 244 245;
+    
+    --primary: 129 140 248;
+    --primary-foreground: 10 10 14;
+    
+    --secondary: 32 32 44;
+    --secondary-foreground: 244 244 245;
+    
+    --accent: 244 114 182;
+    --accent-foreground: 10 10 14;
+    
+    --muted: 161 161 170;
+    --muted-foreground: 32 32 44;
+    
+    --border: 39 39 52;
+    --input: 39 39 52;
+    --ring: 129 140 248;
+  }
+
+  body {
+    background-color: rgb(var(--background));
+    color: rgb(var(--foreground));
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* Premium Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgb(var(--border));
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(var(--primary) / 0.4);
+}
+
+/* Custom Glassmorphism Templates */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.dark .glass-panel {
+  background: rgba(20, 20, 28, 0.45);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Sparkle/Glow background effect */
+.glow-bg {
+  position: relative;
+}
+.glow-bg::before {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  background: radial-gradient(circle, rgb(var(--primary) / 0.08) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
